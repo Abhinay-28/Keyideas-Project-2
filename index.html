@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keyideas Merged Website</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</style>
+</style>
+
+</head>
+<body>
+
+  <nav class="navbar  bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      KEYIDEAS
+      <small>agility·ingenuity·reliability</small>
+    </a>
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class=" navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Company</a>
+          <!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><a class="dropdown-item" href="#">Team</a></li>
+          </ul> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Work</a>
+          <!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Portfolio</a></li>
+            <li><a class="dropdown-item" href="#">Case Studies</a></li>
+          </ul> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+          <!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Blog</a></li>
+            <li><a class="dropdown-item" href="#">Guides</a></li>
+          </ul> -->
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">We’re Hiring</a></li>
+        <li class="nav-item"><a class="btn btn-talk ms-lg-3" href="#">Let's Talk</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-section-wrapper">
+    <div class="container-custom">
+      <div class="left-section">
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">Driving Success Through Expert IT Consulting Services</h1>
+        <p class="text-lg md:text-xl text-gray-200">Agility, Ingenuity, Reliability: Powering Progress.</p>
+      </div>
+      <div class="right-grid" id="boxGrid">
+        <div class="hero-row row-1">
+            <div class="bg-violet-500 grid-box" data-swap-type="card" data-initial-index="0"><span class="font-bold text-xl">Transform</span></div>
+            <div class="bg-violet-800 grid-box" data-swap-type="card" data-initial-index="1"><div class="text-xs p-4"><p class="font-bold text-lg">Clutch ⭐⭐⭐⭐⭐</p><p class="mt-2">Top B2B Providers in the Indian Emerging Tech Market for 2021</p></div></div>
+            <div class="bg-violet-700 grid-box" data-swap-type="text" data-initial-index="2"><span class="font-bold text-xl">Convert</span></div>
+            <div class="bg-violet-600 grid-box" data-swap-type="card" data-initial-index="3"><div class="text-xs p-4"><p class="font-bold text-lg">GoodFirms</p><p class="mt-2">Top Shopify Development Companies in 2019</p></div></div>
+        </div>
+        <div class="hero-row row-2">
+            <div class="bg-violet-600 grid-box" data-swap-type="text" data-initial-index="4"><span class="font-bold text-xl">Attract</span></div>
+            <div class="bg-violet-500 text-black grid-box" data-swap-type="card" data-initial-index="5"><div class="text-xs p-4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png" class="h-6 mx-auto mb-2" alt="Microsoft"/><p class="font-bold">Microsoft Solutions Partner</p><p>Microsoft Cloud</p></div></div>
+            <div class="bg-violet-700 grid-box" data-swap-type="text" data-initial-index="6"><span class="font-bold text-xl">Growth</span></div>
+        </div>
+        <div class="hero-row row-3">
+            <div class="bg-violet-800 grid-box" data-swap-type="text" data-initial-index="7"><span class="font-bold text-xl">Strategy</span></div>
+            <div class="bg-violet-800 grid-box" data-swap-type="card" data-initial-index="8"><div class="text-xs p-4"><p class="font-bold text-lg">Clutch ⭐⭐⭐⭐⭐</p><p class="mt-2">Top 12 out of 400 top Mobile App Developers in India, 2020</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-wrapper">
+    <h1>Comprehensive IT Consulting Services for All Business Needs</h1>
+    <div class="services-container">
+      <div class="sidebar">
+        <button class="active" onclick="showContent('software', event)">Software Product Engineering</button>
+        <button onclick="showContent('website', event)">Website & E-Commerce</button>
+        <button onclick="showContent('digital', event)">Digital Experience</button>
+        <button onclick="showContent('remote', event)">Remote Team</button>
+        <button onclick="showContent('hitech', event)">Hi-Tech</button>
+        <button onclick="showContent('marketing', event)">Online Marketing</button>
+      </div>
+      <div class="content" id="content-box">
+        <h2>Software Product Engineering</h2>
+        <p>We excel in software product engineering, leveraging our software experts to deliver seamless integration, innovative design, and optimized performance, helping businesses thrive in the ever-evolving digital landscape.</p>
+        <div class="services"><div>API & Microservices</div><div>Enterprise CMS Solutions</div><div>Software Modernization</div><div>Cloud Application Development</div><div>Enterprise Software Development</div><div>Software Outsourcing</div><div>Custom CRM Software</div><div>Microsoft Development</div><div>Software Support and Maintenance</div><div>Custom Software Development</div><div>Mobile App Development</div><div>Testing and Quality Assurance</div><div>DevOps Consulting Services</div><div>Software Consulting</div></div>
+      </div>
+    </div>
+  </div>
+
+   <div class="image-section-wrapper">
+    <div class="image-container">
+      <div class="image-heading">Experiences Crafted by our Software Experts</div>
+      <div class="image-row">
+        <div class="card-wide"><img src="images/Healthcare-and-research.png" alt="Healthcare"><div class="overlay"><h3>HEALTHCARE RESEARCH SOLUTION</h3><p>User-friendly health based applications for clinical trial management.</p><div class="hover-text">Dental Practice Marketplace </div><div class="hover-text">Medical UI/UX Solutions </div><div class="hover-text">Pharma Research Developement</div><div class="hover-text">Health & Wellness Platform</div></div></div>
+        <div class="card-narrow"><img src="images/advance-jewelry.jpg" alt="Jewelry"><div class="overlay"><h3>ADVANCED JEWELRY SOLUTIONS</h3><p>Explore innovative solutions featuring custom designs and enhanced shopping experiences.</p><div class="hover-text">Jewellery E-Commerce Los Angeles </div><div class="hover-text">Diamond Ring Builder Melbourne</div><div class="hover-text">Jewelry Website Chicago</div><div class="hover-text">Jewelry E-Commerce Chicago</div></div></div>
+        <div class="card-narrow-left"><img src="images/Travel&hospility.png" alt="Travel"><div class="overlay"><h3>TRAVEL & HOSPITALITY</h3><p>Platforms that simplifies tour planning, and makes bookings easier.</p><div class="hover-text">Comprehensive Travel App</div><div class="hover-text">Hospitality Management Platform</div><div class="hover-text">Travel & Booking System</div><div class="hover-text">Tourism & Managemnt Solution</div></div></div>
+        <div class="card-wide-left"><img src="images/warehouse.png" alt="Enterprise"><div class="overlay"><h3>ENTERPRISE SOFTWARE</h3><p>Powerful tools designed to integrate processes and boost productivity.</p><div class="hover-text">Warehouse Management System</div><div class="hover-text">clinical Research Mobile Application</div><div class="hover-text">Transforming Energy Sector</div><div class="hover-text">Confrence Management Software</div> </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fdx-image-section-wrapper">
+    <div class="fdx-image-container">
+      <div class="fdx-image-heading">Experiences Crafted by our Software Experts</div>
+      <div class="fdx-image-row">
+        <div class="fdx-card"><img src="images/Real-estate.jpg" alt="Healthcare"><div class="fdx-overlay"><h3>REAL ESTATE & PROPERTY MANAGEMENT</h3><p>Effecient solutions for propert listings and tenant management.</p><div class="fdx-hover-text">Real-estate Management</div><div class="fdx-hover-text">NEW-YORK Real-estate Buisness</div><div class="fdx-hover-text">Property Management Solution</div><div class="fdx-hover-text">USA Luxury Real Estate</div></div>Property Management </div>
+        <div class="fdx-card"><img src="images/E-commerce.png" alt="Jewelry"><div class="fdx-overlay"><h3>E-COMMERCE PLATFORMS</h3><p>Platforms with diverse products and easy payments and faster delivery. .</p><div class="fdx-hover-text">Supporting Goods B2B Commerce</div><div class="fdx-hover-text">Empowering Food & Beverage E-Commerce</div><div class="fdx-hover-text">Electronics Shopify Store</div><div class="fdx-hover-text">Food & Beverage Store</div></div></div>
+        <div class="fdx-card"><img src="images/Finance&Fintech.png" alt="Travel"><div class="fdx-overlay"><h3>FINANCE & FINTECH SOLUTIONS</h3><p>Innovative tools designed to simplify financial management,enhance transactions and drive growth in digital economy.</p><div class="fdx-hover-text">Fintech UI/UX Developement</div><div class="fdx-hover-text">Financial Advisory Platform</div><div class="fdx-hover-text">Banking Services Platform</div><div class="fdx-hover-text">Insurance Invoicing Platform</div></div></div>
+        <div class="fdx-card"><img src="images/contractor.jpg" alt="Enterprise"><div class="fdx-overlay"><h3>CONTRACTOR & HOME SERVICES</h3><p>Reliable solutions for professional contracting ,home maintenance and remodelling needs .</p><div class="fdx-hover-text">Home Repair Platform</div><div class="fdx-hover-text">Home remodelling Platform</div><div class="fdx-hover-text">Revolutionizing Remodelling Experience</div><div class="fdx-hover-text">Renovation Management System</div></div></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="since2007-wrapper">
+    <div class="container mx-auto px-6 py-16 md:py-24 relative">
+      <header class="text-center max-w-4xl mx-auto" style="margin-top: -102px;">
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-gray-800">Trusted Software Experts for Small and Medium-Sized Clients</h1>
+        <p class="text-gray-600 md:text-lg max-w-3xl mx-auto">In 2007, our journey in IT consulting services began as a software development agency. Since then, we've continuously progressed, evolving into a comprehensive provider of top-tier website design and development experiences. Our software expertise spans design, mobile apps, e-commerce websites, UI/UX, and marketing. Our specialization in IT consulting services led to building lasting client partnerships through innovative web solutions crafted by industry leading software experts and been recognized through numerous industry awards on platforms like Clutch.</p>
+      </header>
+      <section class="mt-20 mb-10 md:mt-28 md:mb-16">
+        <div class="logo-scroller">
+          <div class="logo-scroller-inner"><img src="https://placehold.co/150x40/f0f0f0/999?text=Capgemini&font=inter" alt="Capgemini Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Carbide+Depot&font=inter" alt="Carbide Depot Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=COMPARE&font=inter" alt="Compare Drawdown Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=CRITICAL&font=inter" alt="Critical Control Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=DIGITEL&font=inter" alt="Digitel Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=dimendSCAASI&font=inter" alt="Dimendscaasi Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Hackensack&font=inter" alt="Hackensack Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=LANshack&font=inter" alt="LANshack Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Mir&font=inter" alt="Mir Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Capgemini&font=inter" alt="Capgemini Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Carbide+Depot&font=inter" alt="Carbide Depot Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=COMPARE&font=inter" alt="Compare Drawdown Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=CRITICAL&font=inter" alt="Critical Control Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=DIGITEL&font=inter" alt="Digitel Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=dimendSCAASI&font=inter" alt="Dimendscaasi Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Hackensack&font=inter" alt="Hackensack Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=LANshack&font=inter" alt="LANshack Logo"><img src="https://placehold.co/150x40/f0f0f0/999?text=Mir&font=inter" alt="Mir Logo"></div>
+        </div>
+      </section>
+      <div class="absolute inset-x-0 bottom-0 sm:bottom-[-50px] md:bottom-[-100px] flex justify-center items-center pointer-events-none"><h2 class="background-text font-extrabold whitespace-nowrap" style="position: absolute;top: -151px;font-size: 197px;">SINCE 2007</h2></div>
+    </div>
+  </div>
+
+  <div class="standout-wrapper">
+    <div class="standout-container">
+      <h2>Customized IT Consulting Services for Leading Sectors</h2>
+      <p class="subtitle">At Keyideas, we specialize in providing IT consulting services and leveraging the expertise of our software experts to deliver tailored web solutions.</p>
+      <div class="standout-grid">
+        <div class="standout-card highlighted"><img src="https://picsum.photos/128/128?random=20" alt=""><span>Events and Conference</span></div>
+        <div class="standout-card highlighted"><img src="https://picsum.photos/128/128?random=21" alt=""><span>Fashion and Accessories</span></div>
+        <div class="standout-card highlighted"><img src="https://picsum.photos/128/128?random=22" alt=""><span>Jewelry Website</span></div>
+        <div class="standout-card highlighted"><img src="https://picsum.photos/128/128?random=23" alt=""><span>Warehouse Management</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=24" alt=""><span>Automotive and Transportation</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=25" alt=""><span>Education</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=26" alt=""><span>Finance</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=27" alt=""><span>Food and Beverages</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=28" alt=""><span>Health and Medical</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=29" alt=""><span>Heavy Equipments</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=30" alt=""><span>Home and Repair</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=31" alt=""><span>Industrial</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=32" alt=""><span>Insurance</span></div>
+        <div class="standout-highlight"><strong>WHY WE STAND OUT?</strong><div class="standout-highlight-item"><span>⚡ Agility</span><small>Faster Turn Around Time</small></div><div class="standout-highlight-item"><span>💡 Ingenuity</span><small>Innovative Solution Provider</small></div><div class="standout-highlight-item"><span>🤝 Reliability</span><small>Collaboration and Trust</small></div></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=33" alt=""><span>Legal</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=34" alt=""><span>Local Services</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=35" alt=""><span>Real Estate</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=36" alt=""><span>Recreation and Entertainment</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=37" alt=""><span>Retail and E-Commerce</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=38" alt=""><span>Professional Services</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=39" alt=""><span>Tech</span></div>
+        <div class="standout-card"><img src="https://picsum.photos/128/128?random=40" alt=""><span>Tourism and Hospitality</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="tools-wrapper">
+  <h2>Wide Range of Expertise</h2>
+  <p>
+    Our strength lies in our wide range of expertise across numerous cutting-edge technologies. 
+    This comprehensive knowledge enables us to craft stunning and functional websites that not only 
+    meet your specific requirements but also exceed your expectations.
+  </p>
+
+  <!-- Filter Buttons -->
+  <div class="expertise-filters">
+    <button class="active" data-category="backend">Backend</button>
+    <button data-category="frontend">Frontend</button>
+    <button data-category="cloud">Cloud & DevOps</button>
+    <button data-category="database">Data & Databases</button>
+    <button data-category="qa">AI/ML & QA</button>
+    <button data-category="mobile">Mobile Apps & PWA</button>
+    <button data-category="ecommerce">Design & E-commerce</button>
+    <button data-category="pm">Project Management</button>
+  </div>
+
+  <!-- Logos -->
+  <div class="logos">
+    <!-- Backend -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="ASP.NET Core" data-category="backend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" data-category="backend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg" alt="CodeIgniter" data-category="backend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" data-category="backend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" data-category="backend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" data-category="backend">
+
+    <!-- Frontend -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" data-category="frontend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" data-category="frontend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" data-category="frontend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" data-category="frontend">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" data-category="frontend">
+
+    <!-- Cloud & DevOps -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" data-category="cloud">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" data-category="cloud">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" data-category="cloud">
+
+    <!-- Databases -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" data-category="database">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" data-category="database">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" data-category="database">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle" data-category="database">
+
+    <!-- AI/ML & QA -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" data-category="qa">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-plain.svg" alt="JMeter" data-category="qa">
+    <img src="https://www.vectorlogo.zone/logos/browserstack/browserstack-icon.svg" alt="BrowserStack" data-category="qa">
+
+    <!-- Mobile -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" data-category="mobile">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" data-category="mobile">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="iOS" data-category="mobile">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" data-category="mobile">
+
+    <!-- Design & E-commerce -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" data-category="ecommerce">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD" data-category="ecommerce">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg" alt="Shopify" data-category="ecommerce">
+
+    <!-- Project Management -->
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" data-category="pm">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" alt="Atlassian/Trello" data-category="pm">
+  </div>
+</section>
+
+
+  <section class="process-container">
+    <h2>Efficient Processes Tailored for IT Consulting Services</h2>
+    <p>Maximizing digital product potential through data-driven insights and user-centric design for memorable user interactions led by software experts.</p>
+    <div class="process-flow">
+      <div class="flow-row" aria-hidden="true"><div style="width:150px"></div><div style="width:150px"></div><div style="width:150px"></div></div>
+      <div class="flow-middle" id="flowMiddle">
+        <div class="seg"><p><strong>Data Intelligence</strong></p><p>Heuristic Evaluation</p></div>
+        <div class="seg"><p><strong>Workflow Architecture</strong></p><p>Feasibility Mapping</p></div>
+        <div class="seg"><p><strong>Interaction Modelling</strong></p><p>Cognitive Load</p></div>
+        <div class="seg"><p><strong>Code Optimization</strong></p><p>API Orchestration</p></div>
+        <div class="seg"><p><strong>Regression Analysis</strong></p><p>Stress Testing</p></div>
+        <div class="seg"><p><strong>CI/CD Pipeline</strong></p><p>Adaptive Scaling</p></div>
+        <div class="connector top" data-seam="1" id="top1"><div class="dot-1">✓</div><div class="pill">IN-DEPTH RESEARCH &amp; ANALYSIS</div><div class="line"></div></div>
+        <div class="connector top" data-seam="3" id="top2"><div class="dot-2">✓</div><div class="pill">DESIGN &amp; EXPERIENCE</div><div class="line"></div></div>
+        <div class="connector top" data-seam="5" id="top3"><div class="dot-3">✓</div><div class="pill">TESTING &amp; OPTIMIZATION</div><div class="line"></div></div>
+        <div class="connector bottom" data-seam="2" id="bot1"><div class="line"></div><div class="pill-bottom-1">STRUCTURED PLANNING &amp; ROADMAP</div><div class="dot-bottom-1">✓</div></div>
+        <div class="connector bottom" data-seam="4" id="bot2"><div class="line"></div><div class="pill-bottom-2">DEVELOPMENT &amp; IMPLEMENTATION</div><div class="dot-bottom-2">✓</div></div>
+        <div class="connector bottom" data-seam="5" id="bot3"><div class="line-3"></div><div class="pill-bottom-3">DEPLOYMENT &amp; MAINTENANCE</div><div class="dot-bottom-3">✓</div></div>
+      </div>
+      <div class="flow-row" aria-hidden="true"><div style="width:150px"></div><div style="width:150px"></div><div style="width:150px"></div></div>
+    </div>
+  </section>
+
+  <section class="social-impact-section">
+        <div class="container">
+            <h2>Social Impact: Making a Difference through Corporate Responsibility</h2>
+            <div class="image-gallery">
+                <img src="images/Social-1.png" alt="A person helping in a community drive" width="169.08" height="169.08">
+                <img src="images/Social-2.png" alt="Fresh vegetables being distributed" width="169.08" height="169.08">
+                <img src="images/Social-3.png" alt="A group of smiling school children" width="169.08" height="169.08">
+                <img src="images/Social-4.png" alt="Volunteers serving food to children" width="169.08" height="169.08">
+                <img src="images/Social-5.png" alt="A smiling child receiving a meal" width="169.08" height="169.08">
+                <img src="images/Social-1.png" alt="A volunteer serving food in a kitchen" width="169.08" height="169.08">
+            </div>
+            <p>In the current business environment, social impact initiatives at Keyideas have become essential elements of our corporate strategy. These efforts extend beyond mere profit-making goals, striving to foster positive change and enhance societal well-being.</p>
+            <a href="#" class="social-responsibility-link">Social Responsibility &rightarrow;</a>
+        </div>
+    </section>
+
+    <section class="join-team-section">
+        <div class="text-content">
+            <h2>Join Our Team: Work with Our Industry-Leading Software Experts</h2>
+            <p>At Keyideas, we're always on the lookout for exceptional software experts and talented professionals across technology, creativity, and business development. Explore our current job openings to join our dynamic team.</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="grid-item item-1"><img src="images/Platina-1.png" alt="Company team event" width="400" height="300"></div>
+                <div class="grid-item item-2"><img src="images/Platina-2.png" alt="Team members collaborating on a project"   width="400" height="300"></div>
+                <div class="grid-item item-3"><img src="images/Platina-3.png" alt="Exterior view of the Platina office building"  width="800" height="600"></div>
+                <div class="grid-item item-4"><img src="images/Platina-4.png" alt="Interior view of a decorated office space"  width="400" height="600"></div>
+                <div class="grid-item item-5"><a href="#" class="job-link">Job Openings <span>&rightarrow;</span></a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+  <div class="faq-left">
+    <h2>Comprehensive FAQ About Choosing the Right IT Consulting Services Company</h2>
+    <div class="accordion">
+
+      <!-- 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">What do Keyideas’ IT consulting services cost for custom websites or apps?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Keyideas offers bespoke solutions tailored to the unique needs of businesses at any scale. Pricing varies based on project complexity and features:</p>
+          <p><b>Basic Websites or Apps:</b> Starting at $6,000, clean, responsive layouts, minimal interactivity.</p>
+          <p><b>Advanced Solutions:</b> $20,000–$50,000, includes OAuth, payment gateways, API integrations, dynamic CMS, cloud storage.</p>
+          <p><b>Enterprise-Grade Systems:</b> Starting at $75,000, multi-role access, real-time data, high-volume transactions, robust security.</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header">What makes Keyideas’ software experts stand out?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Since 2007, Keyideas has been a trusted IT partner delivering innovative solutions.</p>
+          <p><b>Comprehensive Expertise:</b> MERN, MEAN, AI, AR, IoT, custom app development.</p>
+          <p><b>Proven Impact:</b> 832+ projects, 3.1M leads, recognized by Clutch, GoodFirms, TechBehemoths.</p>
+          <p><b>Client-Centric Strategy:</b> Align every strategy with business goals.</p>
+          <p>Pricing starts at $28/hour.</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Why is outsourcing to Keyideas more cost-effective than in-house development?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Outsourcing saves time and costs by eliminating hiring, training, and infrastructure expenses. Focus on core operations while we handle technical aspects.</p>
+          <p>Flexible pricing from $28/hour ensures you pay only for the resources you need.</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header">How can Keyideas redesign your website or app to boost sales on budget?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>We blend advanced technology with innovative design to drive revenue:</p>
+          <p><b>Conversion Optimization:</b> Lead capture forms, custom integrations, design elements.</p>
+          <p><b>SEO & Traffic Enhancement:</b> Improve speed, responsiveness, SEO.</p>
+          <p><b>Data-Driven Strategy:</b> Refine user behavior insights.</p>
+          <p><b>UX Efficiency:</b> Intuitive navigation, better retention.</p>
+          <p><b>Scalability & Security:</b> Scalable, secure redesigns.</p>
+          <p><b>Continuous Optimization:</b> Post-launch tracking and updates.</p>
+          <p>Redesign projects start at $6,000.</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">What’s the pricing structure for working with Keyideas on custom software?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Flexible and transparent pricing:</p>
+          <p><b>Hourly:</b> From $28/hour.</p>
+          <p><b>Monthly:</b> From $3,800/month.</p>
+          <p><b>Project-Based:</b> Custom pricing based on complexity and deliverables.</p>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="accordion-item">
+        <div class="accordion-header">How does Keyideas ensure performance, scalability, and security?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p><b>Performance:</b> Optimized UI/UX, caching, CDN.</p>
+          <p><b>Scalability:</b> Cloud-based, microservices, containerization.</p>
+          <p><b>Security:</b> Encryption, secure APIs, compliance audits.</p>
+          <p><b>Tailored Solutions:</b> Custom solutions for unique business challenges.</p>
+          <p><b>Innovation:</b> Latest technologies and trends for future-ready solutions.</p>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="accordion-item">
+        <div class="accordion-header">How does Keyideas ensure the best value while improving performance, scalability, and security?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Streamlined IT infrastructure, advanced tech integration, and workflow automation maximize efficiency.</p>
+          <p>Flexible pricing models align with business needs, ensuring cost-effective, measurable results.</p>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="accordion-item">
+        <div class="accordion-header">What additional benefits does Keyideas provide?<i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+          <p>Beyond software, Keyideas delivers strategic partnership, continuous support, and solutions designed for long-term growth and ROI.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <div class="faq-right">
+        <h3>“ They were all knowledgeable, professional, understanding and simply amazing to work with…”</h3>
+        <div class="review-source"><i class="fa-solid fa-c"></i> Review from Clutch.co</div>
+        <button>Hire Monthly Resources</button>
+        <div class="cta-text">UNMATCHED PROFESSIONALISM,<br>TAILORED FOR SUCCESS</div>
+      </div>
+    </section>
+
+  <section class="stats-section">
+    <div class="stats-box">
+      <div class="stats-left">
+        <h4>We've Successfully Delivered Over</h4>
+        <div class="counter">3 1 5 6 4 2 8</div>
+        <p>Leads For The Client</p>
+      </div>
+      <div class="stats-right">
+        <p>17 Years In Business</p>
+        <p>832+ Projects Completed</p>
+        <p>100+ Experts</p>
+      </div>
+    </div>
+    <div class="cta-box">
+      <h3>Discuss Your Ideas</h3>
+      <button class="cta-btn">Connect Now</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>SERVICES</h4>
+        <div class="services"><span>Web Design</span><span>UI Design</span><span>App Development</span><span>Graphic Design</span><span>E-Commerce Websites</span><span>Digital Marketing</span></div>
+        <div class="links">
+          <a href="#">CASE STUDIES</a>
+          <a href="#">WE'RE HIRING <span class="apply-btn">APPLY NOW!</span></a>
+          <a href="#">INDUSTRIES</a>
+          <a href="#">SOCIAL IMPACT</a>
+          <a href="#">ABOUT</a>
+          <a href="#">BLOG</a>
+        </div>
+      </div>
+      <div class="right-col">
+        <div>
+          <h4>KEYIDEAS</h4>
+          <p class="company-desc">Keyideas is a premier web design, mobile apps, and web development company. Rated 5 out of 5 on Google, Clutch, and Goodfirms.</p>
+        </div>
+        <div class="address-row">
+          <div class="address-col">
+            <h4>INDIA</h4>
+            <p>3rd Floor Platina Tower<br>M6 Road, Sector 28<br>Gurugram 122002</p>
+            <p>13th Floor R-Tech Park<br>Western Express Highway<br>Goregaon Mumbai 400063</p>
+            <p>+91 99994 03715<br>(WhatsApp only)</p>
+          </div>
+          <div class="address-col">
+            <h4>UNITED STATES</h4>
+            <p>244 S Palmetto<br>Daytona Beach<br>Florida 32114</p>
+            <p>US: +1 (929) 309–2648<br>UK: +44 78939 26480</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-behance"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <span class="footer-links">Privacy Policy | Sitemap</span>
+      <p>© Copyright 2025. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" ></script>
+   <script src="js/main.js"></script>
+
+
+ 
+</body>
+</html>
