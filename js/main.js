@@ -171,81 +171,35 @@
         }
         
         // Animates all boxes back to their original positions and restores content
-        // async function performResetAnimation() {
-        //     const currentBoxes = Array.from(document.querySelectorAll('.grid-box'));
-        //     const animationPromises = [];
-        //     const scale = getScale();
-
-        //     const homeElements = new Array(initialStates.length);
-        //     currentBoxes.forEach(box => {
-        //         const initialIndex = parseInt(box.dataset.initialIndex, 10);
-        //         if (initialIndex >= 0) homeElements[initialIndex] = box;
-        //     });
-
-        //     homeElements.forEach((box, targetIndex) => {
-        //         if (!box || !initialStates[targetIndex]) return;
-        //         const homeState = initialStates[targetIndex];
-        //         const currentRect = box.getBoundingClientRect();
-                
-        //         const deltaX = (homeState.rect.left - currentRect.left) / scale;
-        //         const deltaY = (homeState.rect.top - currentRect.top) / scale;
-
-        //         if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
-        //             animationPromises.push(new Promise(resolve => {
-        //                 box.classList.add('animating');
-        //                 box.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        //                 setTimeout(resolve, ANIMATION_DURATION);
-        //             }));
-        //         }
-        //     });
-
-        //     await Promise.all(animationPromises);
-
-
         async function performResetAnimation() {
-  const currentBoxes = Array.from(document.querySelectorAll('.grid-box'));
-  const animationPromises = [];
-  const scale = getScale();
+            const currentBoxes = Array.from(document.querySelectorAll('.grid-box'));
+            const animationPromises = [];
+            const scale = getScale();
 
-  const homeElements = new Array(initialStates.length);
-  currentBoxes.forEach(box => {
-    const initialIndex = parseInt(box.dataset.initialIndex, 10);
-    if (initialIndex >= 0) homeElements[initialIndex] = box;
-  });
+            const homeElements = new Array(initialStates.length);
+            currentBoxes.forEach(box => {
+                const initialIndex = parseInt(box.dataset.initialIndex, 10);
+                if (initialIndex >= 0) homeElements[initialIndex] = box;
+            });
 
-  homeElements.forEach((box, targetIndex) => {
-    if (!box || !initialStates[targetIndex]) return;
-    const homeState = initialStates[targetIndex];
-    const currentRect = box.getBoundingClientRect();
+            homeElements.forEach((box, targetIndex) => {
+                if (!box || !initialStates[targetIndex]) return;
+                const homeState = initialStates[targetIndex];
+                const currentRect = box.getBoundingClientRect();
+                
+                const deltaX = (homeState.rect.left - currentRect.left) / scale;
+                const deltaY = (homeState.rect.top - currentRect.top) / scale;
 
-    const deltaX = (homeState.rect.left - currentRect.left) / scale;
-    const deltaY = (homeState.rect.top - currentRect.top) / scale;
+                if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
+                    animationPromises.push(new Promise(resolve => {
+                        box.classList.add('animating');
+                        box.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                        setTimeout(resolve, ANIMATION_DURATION);
+                    }));
+                }
+            });
 
-    if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
-      animationPromises.push(new Promise(resolve => {
-        box.classList.add('animating');
-        box.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-
-        setTimeout(() => {
-          // After animation ends, restore DOM
-          box.style.transition = 'none';
-          box.style.transform = '';
-          box.innerHTML = homeState.innerHTML;
-          box.className = homeState.className;
-
-          requestAnimationFrame(() => {
-            box.style.transition = '';
-            box.classList.remove('animating');
-          });
-
-          resolve();
-        }, ANIMATION_DURATION);
-      }));
-    }
-  });
-
-  await Promise.all(animationPromises);
-
+            await Promise.all(animationPromises);
             
             // After animation, instantly restore original state
         //     homeElements.forEach((box, targetIndex) => {
@@ -307,7 +261,7 @@
 
         // Starts or stops the animation based on screen width
         function manageHeroAnimation() {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth ) {
                 if (!animationRunning) {
                     setTimeout(() => {
                         storeInitialStates();
