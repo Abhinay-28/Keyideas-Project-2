@@ -367,5 +367,21 @@
         }
     }
 
+
+
     window.addEventListener('load', manageHeroAnimation);
     window.addEventListener('resize', manageHeroAnimation);
+
+
+
+ document.getElementById('showMoreBtn').addEventListener('click', function() {
+    const grid = document.querySelector('.standout-grid');
+    grid.classList.toggle('show-all');
+
+    // Change button text
+    if (grid.classList.contains('show-all')) {
+        this.textContent = 'Show less';
+    } else {
+        this.textContent = 'Show more';
+    }
+});
