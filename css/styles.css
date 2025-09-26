@@ -1134,12 +1134,12 @@ background: linear-gradient(269.24deg, #7646D7 0%, #4F149A 98.66%);
 
     /* === Footer === */
     .footer {        background: linear-gradient(180deg, #3b0c8b, #24025a);
-    padding: 149px 134px 21px;
+    padding: 149px 134px 21px !important;
     color: white;
-    position: relative;
-    left: -147px;
-    margin-right: -292px;
-    top: 59px; }
+    position: relative !important;
+    left: -147px !important;
+    margin-right: -292px !important;
+    top: 59px !important; }
     .footer-container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1.2fr 2fr; gap: 239px; }
     .footer-section h4 { font-size: 16px; margin-bottom: 15px; font-weight: bold; }
     .services { display: grid; grid-template-columns: repeat(4, auto); gap: 12px 10px; justify-content: start; }
