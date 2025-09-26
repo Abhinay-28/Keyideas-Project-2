@@ -393,8 +393,18 @@
         scroll-snap-align: start;
     }
 
-    .overlay h3 { font-size: 18px; position:relative; top:-5px}
+    .overlay h3 { font-size: 18px; position:absolute; top:3px}
     .overlay p { font-size: 14px; display:none }
+
+      .hover-text{
+                margin-top: 2px;
+    font-size: 13px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s 
+ease;
+    position: relative;
+      }
 }
 
 
@@ -485,6 +495,21 @@
         aspect-ratio: 4 / 3;
         scroll-snap-align: start;
     }
+
+      .fdx-hover-text{
+                margin-top: 10px;
+    font-size: 13px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s 
+ease;
+      }
+
+      .since2007-wrapper h2{
+                position: absolute;
+    top: -26px;
+    font-size: 61px;
+      }
 }
 
 /* --- Media Queries for Images 2 --- */
@@ -602,7 +627,7 @@
     .standout-card.highlighted span { color: #4F149A; }
     .standout-highlight {
         grid-column: 1 / -1;
-        background: #6C3DDB;
+background: linear-gradient(335.13deg, #7646D7 21.39%, #3E2571 79.91%);
         color: #fff;
         border-radius: 12px;
         padding: 40px;
