@@ -1049,13 +1049,13 @@ background: linear-gradient(269.24deg, #7646D7 0%, #4F149A 98.66%);
             position: relative;
             left: 49px;
         }
-        .footer{        background: linear-gradient(180deg, #3b0c8b, #24025a);  
-    padding: 21px 142px 12px !important;
-    color: white ;
+        .footer{         background: linear-gradient(180deg, #3b0c8b, #24025a);
+    padding: 149px 134px 21px !important;
+    color: white;
     position: relative !important;
-    left: -147px !important;
-    margin-right: -292px !important;
-    top: 40px !important;
+    left: -180px !important;
+    margin-right: -360px !important;
+    top: 59px !important;
         }
     }
 
