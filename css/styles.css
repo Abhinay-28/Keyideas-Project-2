@@ -123,7 +123,7 @@
         padding-right: 109px;}
       }
 
-      @media (min-width: 820px) and (max-width: 1180px) and(orientation: portrait) {
+      @media (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
         .left-section{
     width: 72%;
     padding: -31px;
