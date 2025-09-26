@@ -1181,6 +1181,23 @@ background: linear-gradient(269.24deg, #7646D7 0%, #4F149A 98.66%);
   }
 
 
+      .standout-wrapper p.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 22px;
+    position: relative;
+    left: 56px;
+    margin-right: 104px;
+    top: 20px;}
+
+
+      .standout-wrapper h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    position: relative;
+    left: 40px;}
+
   .services {
     display: flex
 ;
