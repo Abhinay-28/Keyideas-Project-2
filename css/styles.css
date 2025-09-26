@@ -383,7 +383,8 @@
     .card-narrow-left{ flex: 0 0 85%; /* Each card takes up 85% of the screen width */
         height: auto; /* Let the aspect ratio define the height */
         aspect-ratio: 4 / 3; /* Maintain a consistent shape */
-        scroll-snap-align: start;}
+        scroll-snap-align: start;
+            margin-right:124px}
 
     .card-wide-left{
  flex: 0 0 85%; /* Each card takes up 85% of the screen width */
@@ -392,8 +393,8 @@
         scroll-snap-align: start;
     }
 
-    .overlay h3 { font-size: 18px; }
-    .overlay p { font-size: 14px; }
+    .overlay h3 { font-size: 18px; position:relative; top:-5px}
+    .overlay p { font-size: 14px; display:none }
 }
 
 
@@ -508,7 +509,15 @@
         position: relative;
         left: -46px;
     }
+.fdx-overlay h3{
+     position:absolute;
+      top:11px;
+      
+}
 
+      .fdx-overlay p{
+            display:none;
+      }
 
     .since2007-wrapper{
        position: relative;
