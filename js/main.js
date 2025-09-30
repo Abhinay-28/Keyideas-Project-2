@@ -379,7 +379,7 @@ headers.forEach(header => {
 
 // Start hero animation only on desktop
 function manageHeroAnimation() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth ) {
         if (!swapInterval) { // if not already running
             swapContent();
         }
