@@ -54,7 +54,7 @@
         left: -2px;
         margin-bottom: 125px;
         padding-bottom: 0; /* Adjusted */
-        height: 814px;
+        height: 823px;
     }
     .container-custom { width: 100%; max-width: 1920px; min-height: 765px; margin: 0 auto; display: flex; flex-direction: row; opacity: 1; flex-wrap: wrap; font-family: 'Inter', sans-serif; }
     .left-section { width: 50%;
