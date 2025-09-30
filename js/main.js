@@ -370,23 +370,23 @@ headers.forEach(header => {
 });
 
 // Start hero animation only on desktop
-function manageHeroAnimation() {
-    if (window.innerWidth ) {
-        if (!swapInterval) { // if not already running
-            swapContent();
-        }
-    } else {
-        if (swapInterval) { // if running
-            clearInterval(swapInterval);
-            swapInterval = null;
-        }
-    }
-}
+// function manageHeroAnimation() {
+//     if (window.innerWidth ) {
+//         if (!swapInterval) { // if not already running
+//             swapContent();
+//         }
+//     } else {
+//         if (swapInterval) { // if running
+//             clearInterval(swapInterval);
+//             swapInterval = null;
+//         }
+//     }
+// }
 
 
 
-window.addEventListener('load', manageHeroAnimation);
-window.addEventListener('resize', manageHeroAnimation);
+// window.addEventListener('load', manageHeroAnimation);
+// window.addEventListener('resize', manageHeroAnimation);
 
 
 
