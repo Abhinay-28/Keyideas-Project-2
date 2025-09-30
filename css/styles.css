@@ -1163,7 +1163,7 @@ background: linear-gradient(269.24deg, #7646D7 0%, #4F149A 98.66%);
     
     @media (max-width: 992px) {
       .footer-container { grid-template-columns: 1fr; gap: 40px; }
-      .address-row { flex-direction: column; gap: 20px; }
+      .address-row { flex-direction: row; gap: 20px; }
     }
 
 
