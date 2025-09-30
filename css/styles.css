@@ -1407,3 +1407,100 @@ background: linear-gradient(269.24deg, #7646D7 0%, #4F149A 98.66%);
          left: 0 !important;
     }
 }
+
+/* --- NEW STYLES FOR RESPONSIVE SERVICES SECTION --- */
+
+/* Hide mobile accordion by default on desktop screens */
+.mobile-accordion {
+    display: none;
+}
+
+.accordion-service-item {
+    width: 100%;
+}
+
+.accordion-service-header {
+    background: #f5f5f5;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-service-header.active {
+    background: #4F149A;
+    color: #fff;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Styling for the chevron icon */
+.accordion-service-header i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-service-header.active i {
+    transform: rotate(180deg);
+}
+
+
+.accordion-service-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+    padding: 0 20px;
+}
+
+.accordion-service-content.open {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in, padding 0.4s ease-in;
+    padding: 20px;
+}
+
+.accordion-service-content h2 {
+    color: #4F149A;
+    margin-top: 0;
+}
+
+.accordion-service-content p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.accordion-service-content .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px 40px;
+}
+
+.accordion-service-content .services div {
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Media query to switch between desktop tabs and mobile accordion */
+@media (max-width: 768px) {
+    .desktop-tabs {
+        display: none !important;
+    }
+
+    .mobile-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+/* --- END OF NEW STYLES --- */
