@@ -246,29 +246,21 @@
 
     // Starts or stops the animation based on screen width
     function manageHeroAnimation() {
-        if (window.innerWidth ) {
-            if (!animationRunning) {
-                setTimeout(() => {
-                    storeInitialStates();
-                    animationRunning = true;
-                    runAnimationCycle();
-                }, 100);
-            }
-        } else {
-            if (animationRunning) {
-                animationRunning = false;
-            }
-        }
-    }
-
-    window.addEventListener('load', manageHeroAnimation);
-    window.addEventListener('resize', () => {
-         if(window.innerWidth ) {
+    if (!animationRunning) {
+        setTimeout(() => {
             storeInitialStates();
-        }
-        manageHeroAnimation();
-    });
-})();
+            animationRunning = true;
+            runAnimationCycle();
+        }, 100);
+    }
+}
+
+window.addEventListener('load', manageHeroAnimation);
+window.addEventListener('resize', () => {
+    storeInitialStates();
+    manageHeroAnimation();
+});
+
 
 // Services Section Logic FOR DESKTOP VIEW
 const contentData = {
