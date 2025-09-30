@@ -156,11 +156,14 @@
 
 
 /* First box of each row: round only lower-left corner */
-.row-1 .grid-box:first-child,
-.row-2 .grid-box:first-child,
-.row-3 .grid-box:first-child {
-    border-bottom-left-radius: 40px; /* adjust radius as you like */
+/* Permanent rounded shape only for the first slot in each row */
+.row-1 .grid-box:nth-child(1),
+.row-2 .grid-box:nth-child(1),
+.row-3 .grid-box:nth-child(1) {
+    border-bottom-left-radius: 40px; /* or 215px for a circular quarter */
+    overflow: hidden; /* ensures swapped content doesn't break the curve */
 }
+
 
 
       @media (min-width: 768px) and (max-width: 1366px) {}
