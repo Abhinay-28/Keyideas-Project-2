@@ -1,231 +1,208 @@
 (function setupHeroAnimation() {
-        let animationRunning = false;
-        let initialStates = [];
-        // Animation timings
-        const ANIMATION_DURATION = 1800; // Duration for the slide animation
-        const PAUSE_DURATION = 1200;   // Pause between animation steps (1.2 seconds)
+    let animationRunning = false;
+    let initialStates = [];
+    const ANIMATION_DURATION = 1800; 
+    const PAUSE_DURATION = 1200;
 
-        // Stores the original position, content, and classes of each grid box
-        function storeInitialStates() {
-            const boxes = document.querySelectorAll('.grid-box[data-initial-index]');
-            if (initialStates.length > 0) { // If already stored, just update positions on resize
-                boxes.forEach(box => {
-                    const initialIndex = parseInt(box.dataset.initialIndex, 10);
-                    if (initialStates[initialIndex]) {
-                       initialStates[initialIndex].rect = box.getBoundingClientRect();
-                    }
-                });
-                return;
-            }
-            // First time storing
+    // Store original state
+    function storeInitialStates() {
+        const boxes = document.querySelectorAll('.grid-box[data-initial-index]');
+        if (initialStates.length > 0) {
             boxes.forEach(box => {
-                const initialIndex = parseInt(box.dataset.initialIndex, 10);
-                initialStates[initialIndex] = {
-                    index: initialIndex,
-                    rect: box.getBoundingClientRect(),
-                    innerHTML: box.innerHTML,
-                    className: box.className,
-                };
-            });
-        }
-
-        // Helper function to shuffle an array for randomizing swaps
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-        
-        // Gets the CSS scale factor of the grid container (for mobile view)
-        function getScale() {
-            const grid = document.getElementById('boxGrid');
-            if (!grid) return 1;
-            const transform = window.getComputedStyle(grid).transform;
-            if (transform === 'none') return 1;
-            const matrix = transform.match(/matrix\((.+)\)/);
-            if (matrix) {
-                const values = matrix[1].split(', ');
-                return parseFloat(values[0]); // scaleX
-            }
-            return 1;
-        }
-
-        // Swaps two elements visually and then updates their content/classes
-        function physicalSwap(el1, el2, swapType) {
-            return new Promise(resolve => {
-                const scale = getScale();
-                const rect1 = el1.getBoundingClientRect();
-                const rect2 = el2.getBoundingClientRect();
-                
-                [el1, el2].forEach(el => el.classList.add('animating'));
-
-                // Apply transform to move elements to each other's positions
-                el1.style.transform = `translate(${(rect2.left - rect1.left) / scale}px, ${(rect2.top - rect1.top) / scale}px)`;
-                el2.style.transform = `translate(${(rect1.left - rect2.left) / scale}px, ${(rect1.top - rect2.top) / scale}px)`;
-
-                // After animation, swap the actual content
-                setTimeout(() => {
-                    [el1, el2].forEach(el => el.style.transition = 'none');
-                    if (swapType === 'text') {
-                        [el1.innerHTML, el2.innerHTML] = [el2.innerHTML, el1.innerHTML];
-                    } else { // 'card' swap
-                        const d1_type = el1.dataset.swapType;
-                        const d1_index = el1.dataset.initialIndex;
-                        const d2_type = el2.dataset.swapType;
-                        const d2_index = el2.dataset.initialIndex;
-
-                        [el1.innerHTML, el2.innerHTML] = [el2.innerHTML, el1.innerHTML];
-                        [el1.className, el2.className] = [el2.className, el1.className];
-
-                        el1.dataset.swapType = d1_type;
-                        el1.dataset.initialIndex = d1_index;
-                        el2.dataset.swapType = d2_type;
-                        el2.dataset.initialIndex = d2_index;
-                    }
-                    // Reset styles and remove animation class
-                    [el1.style.transform, el2.style.transform] = ['', ''];
-                    requestAnimationFrame(() => {
-                        [el1, el2].forEach(el => {
-                            el.style.transition = '';
-                            el.classList.remove('animating');
-                        });
-                        resolve();
-                    });
-                }, ANIMATION_DURATION);
-            });
-        }
-        
-        // Performs a circular swap of three elements
-        function physicalSwapThree(el1, el2, el3, swapType) {
-            return new Promise(resolve => {
-                const scale = getScale();
-                const rect1 = el1.getBoundingClientRect();
-                const rect2 = el2.getBoundingClientRect();
-                const rect3 = el3.getBoundingClientRect();
-
-                [el1, el2, el3].forEach(el => el.classList.add('animating'));
-                
-                // Move 1->2, 2->3, 3->1
-                el1.style.transform = `translate(${(rect2.left - rect1.left) / scale}px, ${(rect2.top - rect1.top) / scale}px)`;
-                el2.style.transform = `translate(${(rect3.left - rect2.left) / scale}px, ${(rect3.top - rect2.top) / scale}px)`;
-                el3.style.transform = `translate(${(rect1.left - rect3.left) / scale}px, ${(rect1.top - rect3.top) / scale}px)`;
-
-                setTimeout(() => {
-                    [el1, el2, el3].forEach(el => el.style.transition = 'none');
-                    const props1 = { innerHTML: el1.innerHTML, className: el1.className, 'data-swap-type': el1.dataset.swapType, 'data-initial-index': el1.dataset.initialIndex };
-                    const props2 = { innerHTML: el2.innerHTML, className: el2.className, 'data-swap-type': el2.dataset.swapType, 'data-initial-index': el2.dataset.initialIndex };
-                    const props3 = { innerHTML: el3.innerHTML, className: el3.className, 'data-swap-type': el3.dataset.swapType, 'data-initial-index': el3.dataset.initialIndex };
-                    
-                    if (swapType === 'text') {
-                        el1.innerHTML = props3.innerHTML;
-                        el2.innerHTML = props1.innerHTML;
-                        el3.innerHTML = props2.innerHTML;
-                    } else { // 'card' swap
-                        el1.innerHTML = props3.innerHTML;
-                        el1.className = props3.className;
-                        el1.dataset.swapType = props3['data-swap-type'];
-                        el1.dataset.initialIndex = props3['data-initial-index'];
-
-                        el2.innerHTML = props1.innerHTML;
-                        el2.className = props1.className;
-                        el2.dataset.swapType = props1['data-swap-type'];
-                        el2.dataset.initialIndex = props1['data-initial-index'];
-
-                        el3.innerHTML = props2.innerHTML;
-                        el3.className = props2.className;
-                        el3.dataset.swapType = props2['data-swap-type'];
-                        el3.dataset.initialIndex = props2['data-initial-index'];
-                    }
-                    
-                    [el1, el2, el3].forEach(el => el.style.transform = '');
-                    requestAnimationFrame(() => {
-                        [el1, el2, el3].forEach(el => {
-                            el.style.transition = '';
-                            el.classList.remove('animating');
-                        });
-                        resolve();
-                    });
-                }, ANIMATION_DURATION);
-            });
-        }
-
-        // Performs the text-only swap on designated elements
-        async function performTextSwap() {
-            const elements = shuffle(Array.from(document.querySelectorAll('[data-swap-type="text"]')));
-            if (elements.length < 4) return;
-            // Swap two pairs simultaneously
-            await Promise.all([
-                physicalSwap(elements[0], elements[1], 'text'),
-                physicalSwap(elements[2], elements[3], 'text')
-            ]);
-        }
-
-        // Performs a swap of a specified number of cards
-        async function performCardSwapStep(numToSwap) {
-            const elements = shuffle(Array.from(document.querySelectorAll('[data-swap-type="card"]')));
-            if (elements.length < numToSwap) return;
-            if (numToSwap === 3) await physicalSwapThree(elements[0], elements[1], elements[2], 'card');
-            else if (numToSwap === 2) await physicalSwap(elements[0], elements[1], 'card');
-        }
-        
-        // Animates all boxes back to their original positions and restores content
-        async function performResetAnimation() {
-            const currentBoxes = Array.from(document.querySelectorAll('.grid-box'));
-            const animationPromises = [];
-            const scale = getScale();
-
-            const homeElements = new Array(initialStates.length);
-            currentBoxes.forEach(box => {
-                const initialIndex = parseInt(box.dataset.initialIndex, 10);
-                if (initialIndex >= 0) homeElements[initialIndex] = box;
-            });
-
-            homeElements.forEach((box, targetIndex) => {
-                if (!box || !initialStates[targetIndex]) return;
-                const homeState = initialStates[targetIndex];
-                const currentRect = box.getBoundingClientRect();
-                
-                const deltaX = (homeState.rect.left - currentRect.left) / scale;
-                const deltaY = (homeState.rect.top - currentRect.top) / scale;
-
-                if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
-                    animationPromises.push(new Promise(resolve => {
-                        box.classList.add('animating');
-                        box.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-                        setTimeout(resolve, ANIMATION_DURATION);
-                    }));
+                const idx = parseInt(box.dataset.initialIndex, 10);
+                if (initialStates[idx]) {
+                    initialStates[idx].rect = box.getBoundingClientRect();
                 }
             });
-
-            await Promise.all(animationPromises);
-            
-        homeElements.forEach((box, targetIndex) => {
-          if (!box || !initialStates[targetIndex]) return;
-          const homeState = initialStates[targetIndex];
-        
-          // Instead of replacing DOM after transform reset, do it before animation
-          box.innerHTML = homeState.innerHTML;
-          box.className = homeState.className;
-        
-          box.style.transition = 'none';
-          box.style.transform = '';
-          requestAnimationFrame(() => {
-            box.style.transition = '';
-            box.classList.remove('animating');
-          });
+            return;
+        }
+        boxes.forEach(box => {
+            const idx = parseInt(box.dataset.initialIndex, 10);
+            initialStates[idx] = {
+                index: idx,
+                rect: box.getBoundingClientRect(),
+                innerHTML: box.innerHTML,
+                className: box.className,
+                swapGroup: box.dataset.swapGroup
+            };
         });
     }
-        
-    // Main loop that controls the sequence of animations
+
+    // Shuffle helper
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // Grid scale
+    function getScale() {
+        const grid = document.getElementById('boxGrid');
+        if (!grid) return 1;
+        const transform = window.getComputedStyle(grid).transform;
+        if (transform === 'none') return 1;
+        const match = transform.match(/matrix\((.+)\)/);
+        if (match) {
+            const values = match[1].split(', ');
+            return parseFloat(values[0]);
+        }
+        return 1;
+    }
+
+    // Swap two boxes
+    function physicalSwap(el1, el2, swapType) {
+        return new Promise(resolve => {
+            const scale = getScale();
+            const r1 = el1.getBoundingClientRect();
+            const r2 = el2.getBoundingClientRect();
+
+            [el1, el2].forEach(el => el.classList.add('animating'));
+
+            el1.style.transform = `translate(${(r2.left - r1.left) / scale}px, ${(r2.top - r1.top) / scale}px)`;
+            el2.style.transform = `translate(${(r1.left - r2.left) / scale}px, ${(r1.top - r2.top) / scale}px)`;
+
+            setTimeout(() => {
+                [el1, el2].forEach(el => el.style.transition = 'none');
+
+                if (swapType === 'text') {
+                    [el1.innerHTML, el2.innerHTML] = [el2.innerHTML, el1.innerHTML];
+                } else { 
+                    const d1_idx = el1.dataset.initialIndex;
+                    const d2_idx = el2.dataset.initialIndex;
+
+                    [el1.innerHTML, el2.innerHTML] = [el2.innerHTML, el1.innerHTML];
+                    [el1.className, el2.className] = [el2.className, el1.className];
+
+                    el1.dataset.initialIndex = d1_idx;
+                    el2.dataset.initialIndex = d2_idx;
+                }
+
+                [el1.style.transform, el2.style.transform] = ['', ''];
+                requestAnimationFrame(() => {
+                    [el1, el2].forEach(el => {
+                        el.style.transition = '';
+                        el.classList.remove('animating');
+                    });
+                    resolve();
+                });
+            }, ANIMATION_DURATION);
+        });
+    }
+
+    // Swap three boxes (circular)
+    function physicalSwapThree(el1, el2, el3, swapType) {
+        return new Promise(resolve => {
+            const scale = getScale();
+            const r1 = el1.getBoundingClientRect();
+            const r2 = el2.getBoundingClientRect();
+            const r3 = el3.getBoundingClientRect();
+
+            [el1, el2, el3].forEach(el => el.classList.add('animating'));
+
+            el1.style.transform = `translate(${(r2.left - r1.left) / scale}px, ${(r2.top - r1.top) / scale}px)`;
+            el2.style.transform = `translate(${(r3.left - r2.left) / scale}px, ${(r3.top - r2.top) / scale}px)`;
+            el3.style.transform = `translate(${(r1.left - r3.left) / scale}px, ${(r1.top - r3.top) / scale}px)`;
+
+            setTimeout(() => {
+                [el1, el2, el3].forEach(el => el.style.transition = 'none');
+
+                const props1 = { innerHTML: el1.innerHTML, className: el1.className, swapGroup: el1.dataset.swapGroup, idx: el1.dataset.initialIndex };
+                const props2 = { innerHTML: el2.innerHTML, className: el2.className, swapGroup: el2.dataset.swapGroup, idx: el2.dataset.initialIndex };
+                const props3 = { innerHTML: el3.innerHTML, className: el3.className, swapGroup: el3.dataset.swapGroup, idx: el3.dataset.initialIndex };
+
+                if (swapType === 'text') {
+                    el1.innerHTML = props3.innerHTML;
+                    el2.innerHTML = props1.innerHTML;
+                    el3.innerHTML = props2.innerHTML;
+                } else {
+                    [el1.innerHTML, el1.className, el1.dataset.swapGroup, el1.dataset.initialIndex] = [props3.innerHTML, props3.className, props3.swapGroup, props3.idx];
+                    [el2.innerHTML, el2.className, el2.dataset.swapGroup, el2.dataset.initialIndex] = [props1.innerHTML, props1.className, props1.swapGroup, props1.idx];
+                    [el3.innerHTML, el3.className, el3.dataset.swapGroup, el3.dataset.initialIndex] = [props2.innerHTML, props2.className, props2.swapGroup, props2.idx];
+                }
+
+                [el1, el2, el3].forEach(el => el.style.transform = '');
+                requestAnimationFrame(() => {
+                    [el1, el2, el3].forEach(el => {
+                        el.style.transition = '';
+                        el.classList.remove('animating');
+                    });
+                    resolve();
+                });
+            }, ANIMATION_DURATION);
+        });
+    }
+
+    // Text swap
+    async function performTextSwap() {
+        const elements = shuffle(Array.from(document.querySelectorAll('[data-swap-group="text"]')));
+        if (elements.length < 4) return;
+        await Promise.all([
+            physicalSwap(elements[0], elements[1], 'text'),
+            physicalSwap(elements[2], elements[3], 'text')
+        ]);
+    }
+
+    // Card swap
+    async function performCardSwapStep(numToSwap) {
+        const elements = shuffle(Array.from(document.querySelectorAll('[data-swap-group="card"]')));
+        if (elements.length < numToSwap) return;
+        if (numToSwap === 3) await physicalSwapThree(elements[0], elements[1], elements[2], 'card');
+        else if (numToSwap === 2) await physicalSwap(elements[0], elements[1], 'card');
+    }
+
+    // Reset animation
+    async function performResetAnimation() {
+        const currentBoxes = Array.from(document.querySelectorAll('.grid-box[data-initial-index]'));
+        const animationPromises = [];
+        const scale = getScale();
+
+        currentBoxes.forEach(box => {
+            const idx = parseInt(box.dataset.initialIndex, 10);
+            const home = initialStates[idx];
+            if (!home) return;
+
+            const rect = box.getBoundingClientRect();
+            const dx = (home.rect.left - rect.left) / scale;
+            const dy = (home.rect.top - rect.top) / scale;
+
+            if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+                animationPromises.push(new Promise(resolve => {
+                    box.classList.add('animating');
+                    box.style.transform = `translate(${dx}px, ${dy}px)`;
+                    setTimeout(resolve, ANIMATION_DURATION);
+                }));
+            }
+        });
+
+        await Promise.all(animationPromises);
+
+        currentBoxes.forEach(box => {
+            const idx = parseInt(box.dataset.initialIndex, 10);
+            const home = initialStates[idx];
+            if (!home) return;
+
+            box.innerHTML = home.innerHTML;
+            box.className = home.className;
+            box.dataset.swapGroup = home.swapGroup;
+
+            box.style.transition = 'none';
+            box.style.transform = '';
+            requestAnimationFrame(() => {
+                box.style.transition = '';
+                box.classList.remove('animating');
+            });
+        });
+    }
+
+    // Main loop
     async function runAnimationCycle() {
         if (!animationRunning) return;
-        // 1. Text Swap First
+
         await performTextSwap(); if (!animationRunning) return;
         await new Promise(res => setTimeout(res, PAUSE_DURATION));
 
-        // 2. Varied Card Swaps
         await performCardSwapStep(3); if (!animationRunning) return;
         await performCardSwapStep(2); if (!animationRunning) return;
         await new Promise(res => setTimeout(res, PAUSE_DURATION));
@@ -236,30 +213,29 @@
         await performCardSwapStep(2); if (!animationRunning) return;
         await new Promise(res => setTimeout(res, PAUSE_DURATION));
 
-        // 3. Reset to original state
-        await performResetAnimation(); if(!animationRunning) return;
+        await performResetAnimation(); if (!animationRunning) return;
         await new Promise(res => setTimeout(res, PAUSE_DURATION));
-        
-        // 4. Repeat
+
         if (animationRunning) runAnimationCycle();
     }
 
-    // Starts or stops the animation based on screen width
     function manageHeroAnimation() {
-    if (!animationRunning) {
-        setTimeout(() => {
-            storeInitialStates();
-            animationRunning = true;
-            runAnimationCycle();
-        }, 100);
+        if (!animationRunning) {
+            setTimeout(() => {
+                storeInitialStates();
+                animationRunning = true;
+                runAnimationCycle();
+            }, 100);
+        }
     }
-}
 
-window.addEventListener('load', manageHeroAnimation);
-window.addEventListener('resize', () => {
-    storeInitialStates();
-    manageHeroAnimation();
-});
+    window.addEventListener('load', manageHeroAnimation);
+    window.addEventListener('resize', () => {
+        storeInitialStates();
+        manageHeroAnimation();
+    });
+})();
+
 
 
 // Services Section Logic FOR DESKTOP VIEW
